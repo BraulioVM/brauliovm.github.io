@@ -13,6 +13,12 @@ body {
 	overflow-x: hidden;
 }
 
+a {
+	text-decoration: none;
+	color: white;
+
+}
+
 .wrapper {
 	z-index: 100;
 	width: 100%;
