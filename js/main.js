@@ -1,5 +1,9 @@
 window.addEventListener("load", function(){
 
+	var columns = 4;
+	var rows = 3;
+	var refresh_time = 50;
+
 	function VeilSquare(x, y, width, height){
 		this.x = x;
 		this.y = y;
@@ -9,7 +13,7 @@ window.addEventListener("load", function(){
 		this.opacity = 0;
 		this.increasing = false;
 		this.decreasing = false;
-		this.step = 0.1;
+		this.step = 0.05;
 
 	}
 
@@ -21,9 +25,9 @@ window.addEventListener("load", function(){
 			this.opacity -= this.step;
 		}
 
-		if (this.opacity > 0.6){
-			this.increasing = ! this.increasing;
-			this.decreasing = ! this.decreasing;
+		if (this.opacity > 1){
+			this.increasing = false;
+			this.decreasing = true;
 		}
 
 		if (this.opacity < 0){
@@ -43,20 +47,16 @@ window.addEventListener("load", function(){
 
 	};
 
+	VeilSquare.prototype.activate = function(){
+		this.increasing = true;
+	};
+
 
 	var veil = document.getElementById("veil");
 	var ctx = veil.getContext("2d");
 
-	var columns = 4;
-	var rows = 3;
-
-	var refresh_time = 200;
-	var veil_flip_regularity = 40;
-	var frames = 0;
-
-	var veils = [];
-
 	function createVeils(){
+		var veils = [];
 		var width = veil.width / columns;
 		var height = veil.height / rows;
 		for(var i = 0; i < columns; i++){
@@ -65,21 +65,34 @@ window.addEventListener("load", function(){
 				veils.push(new VeilSquare(i * width, j * height, width, height));
 			}
 		}
+
+		return veils;
 	};
+
+	function chooseRandom(array){
+		return array[Math.floor(Math.random() * array.length)];
+	}
+
+	function doWithProbability(callback, probability){
+		if(Math.random() < probability){
+			callback();
+		}
+	}
 	
-	createVeils();
+	var veils = createVeils();
 
-	var i = 0;
-
+	// Randomly, some will flag
 	setInterval(function(){
 		ctx.clearRect(0, 0, veil.width, veil.height);
-		veils.forEach(function(t_veil){
-			t_veil.draw();
+
+		doWithProbability(function(){
+			chooseRandom(veils).activate();
+		}, 1 / 7);
+
+		veils.forEach(function(veil){
+			veil.draw();
 		});
 
-		if(i++ % veil_flip_regularity == 0){
-			veils[Math.floor(i / veil_flip_regularity) % veils.length].increasing = true;
-		}
 
 	}, refresh_time);
 
