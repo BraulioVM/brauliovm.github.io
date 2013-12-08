@@ -10,6 +10,7 @@ body {
 	padding: 0px;
 	margin: 0px;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 .wrapper {
@@ -73,4 +74,29 @@ header li {
 	left: 0px;
 	width: 100%;
 	height: 100%;
+}
+
+.animation-controls {
+	margin-top: 40px;
+	font-family: "Muli";
+	font-weight: bold;
+	color: white;
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 40%;
+	margin-left: 60%;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	padding: 20px;
+}
+
+.animation-control {
+	margin: 10px;
+}
+
+.animation-control-text {
+	display: block;
+
+}
+
+.animation-control input {
+	width: 80%;
 }

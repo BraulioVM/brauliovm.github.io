@@ -4,6 +4,8 @@ window.addEventListener("load", function(){
 	var rows = 3;
 	var refresh_time = 50;
 
+
+
 	function VeilSquare(x, y, width, height){
 		this.x = x;
 		this.y = y;
@@ -78,25 +80,46 @@ window.addEventListener("load", function(){
 			callback();
 		}
 	}
+
+	function getLoop(probability){
+		
+		var result = function(){
+			ctx.clearRect(0, 0, veil.width, veil.height);
+
+			doWithProbability(function(){
+				chooseRandom(veils).activate();
+			}, probability);
+
+			veils.forEach(function(veil){
+				veil.draw();
+			});
+		}
+
+		return result;
+
+
+	}
+
+	var probability_range = document.getElementById("probability-activation-range");
+	var speed_range = document.getElementById("speed-range");
+
+	function startWithConditions(){
+		var probability = probability_range.value / 100;
+		var speed = (1 - speed_range.value / 100) * 1000;
+
+		clearInterval(interval);
+
+		interval =  setInterval(getLoop(probability), speed);
+
+	};
 	
 	var veils = createVeils();
 
 	// Randomly, some will flag
-	setInterval(function(){
-		ctx.clearRect(0, 0, veil.width, veil.height);
+	var interval = setInterval(getLoop(1/7), refresh_time);
 
-		doWithProbability(function(){
-			chooseRandom(veils).activate();
-		}, 1 / 7);
-
-		veils.forEach(function(veil){
-			veil.draw();
-		});
-
-
-	}, refresh_time);
-
-	
+	probability_range.addEventListener("change", startWithConditions);
+	speed_range.addEventListener("change", startWithConditions);
 
 
 
