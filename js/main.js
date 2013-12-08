@@ -1,7 +1,7 @@
 window.addEventListener("load", function(){
 
-	var columns = 4;
-	var rows = 3;
+	var columns = 12;
+	var rows = 9;
 	var refresh_time = 50;
 
 
