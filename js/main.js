@@ -105,7 +105,7 @@ window.addEventListener("load", function(){
 
 	function startWithConditions(){
 		var probability = probability_range.value / 100;
-		var speed = (1 - speed_range.value / 100) * 1000;
+		var speed = (1 - speed_range.value / 100) * 300;
 
 		clearInterval(interval);
 
