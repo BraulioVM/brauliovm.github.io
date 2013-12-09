@@ -73,7 +73,7 @@ header li {
 	font-weight: none;
 }
 
-#veil {
+#veil-canvas {
 	z-index: -20;
 	position: absolute;
 	top: 0px;

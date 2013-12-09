@@ -6,11 +6,13 @@ window.addEventListener("load", function(){
 
 
 
-	function VeilSquare(x, y, width, height){
+	function VeilSquare(x, y, width, height, ctx){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height= height;
+
+		this.ctx = ctx;
 
 		this.opacity = 0;
 		this.increasing = false;
@@ -44,82 +46,102 @@ window.addEventListener("load", function(){
 	VeilSquare.prototype.draw = function(){
 		this.physics();
 
-		ctx.fillStyle = "rgba(0, 0, 0, " +  this.opacity + ")";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+
+		this.ctx.fillStyle = "rgba(0, 0, 0, " +  this.opacity + ")";
+        this.ctx.fillRect(this.x, this.y, this.width, this.height);
 
 	};
 
 	VeilSquare.prototype.activate = function(){
+		console.log("Activated");
 		this.increasing = true;
 	};
 
 
-	var veil = document.getElementById("veil");
-	var ctx = veil.getContext("2d");
+	function VeilMatrix(rows, columns, cnv){
+		this.rows = rows;
+		this.columns = columns;
+		this.cnv = cnv;
+		this.ctx = cnv.getContext("2d");
+		this.veils = this.createVeils();
 
-	function createVeils(){
+		this.refresh_time = 50;
+		this.probability_of_activation = 1 / 2;
+
+		this.loop();
+	};
+
+	VeilMatrix.prototype.createVeils = function(){
 		var veils = [];
-		var width = veil.width / columns;
-		var height = veil.height / rows;
-		for(var i = 0; i < columns; i++){
+		var width = this.cnv.width / this.columns;
+		var height = this.cnv.height / this.rows;
+		for(var i = 0; i < this.columns; i++){
 			
-			for(var j = 0; j < rows; j++){
-				veils.push(new VeilSquare(i * width, j * height, width, height));
+			for(var j = 0; j < this.rows; j++){
+				veils.push(new VeilSquare(i * width, j * height, width, height, this.ctx));
 			}
 		}
 
 		return veils;
 	};
 
-	function chooseRandom(array){
-		return array[Math.floor(Math.random() * array.length)];
-	}
 
-	function doWithProbability(callback, probability){
-		if(Math.random() < probability){
-			callback();
-		}
-	}
+	VeilMatrix.prototype.randomVeil = function(){
+		return this.veils[Math.floor(Math.random() * this.veils.length)];
+	};
 
-	function getLoop(probability){
-		
-		var result = function(){
-			ctx.clearRect(0, 0, veil.width, veil.height);
+	VeilMatrix.prototype.draw = function(){
+		this.ctx.clearRect(0, 0, this.cnv.width, this.cnv.height);
 
-			doWithProbability(function(){
-				chooseRandom(veils).activate();
-			}, probability);
+		this.veils.forEach(function(veil){
+			veil.draw();
+		});
 
-			veils.forEach(function(veil){
-				veil.draw();
-			});
-		}
+	};
 
-		return result;
+	VeilMatrix.prototype.loop = function(){
+		var that = this;
+		this.interval = setInterval(function(){
+
+			if (Math.random() < that.probability_of_activation)
+				that.randomVeil().activate();
+
+			that.draw();
 
 
-	}
+		}, this.refresh_time);
+	};
+
+
+	VeilMatrix.prototype.setRefreshTime = function(refresh_time){
+		clearInterval(this.interval);
+		this.refresh_time = refresh_time;
+		this.loop();
+	};
+
+	VeilMatrix.prototype.setProbabilityOfActivation = function(probability){
+		clearInterval(this.interval);
+		this.probability_of_activation = probability;
+		this.loop();
+	};
+
+
+	var veil_matrix = new VeilMatrix(rows, columns, document.getElementById("veil-canvas"));
 
 	var probability_range = document.getElementById("probability-activation-range");
 	var speed_range = document.getElementById("speed-range");
 
-	function startWithConditions(){
-		var probability = probability_range.value / 100;
-		var speed = (1 - speed_range.value / 100) * 100;
 
-		clearInterval(interval);
 
-		interval =  setInterval(getLoop(probability), speed);
 
-	};
-	
-	var veils = createVeils();
-
-	// Randomly, some will flag
-	var interval = setInterval(getLoop(1/7), refresh_time);
-
-	probability_range.addEventListener("change", startWithConditions);
-	speed_range.addEventListener("change", startWithConditions);
+	probability_range.addEventListener("change", function(){
+		var probability = this.value / 100;
+		veil_matrix.setProbabilityOfActivation(probability);
+	});
+	speed_range.addEventListener("change", function(){
+		var refresh_time = 101 - this.value;
+		veil_matrix.setRefreshTime(refresh_time);
+	});
 
 
 
