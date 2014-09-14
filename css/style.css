@@ -1,108 +1,104 @@
-html {
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+
+
+.wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	padding: 0px;
-	margin: 0px;
+
+	margin: 0;
+	background-color: rgba(0, 0, 0, 0.2);
 }
-body {
-	background: url('../images/background2.jpg') fixed no-repeat;
-	background-size: cover;
-	padding: 0px;
-	margin: 0px;
+
+
+.content {
 	height: 100%;
-	overflow-x: hidden;
+}
+
+
+
+.presentation-card {
+	
+	font-family: "Arial";
+	padding: 0px;
+}
+
+
+.top-part {
+	box-shadow: 10px 10px 7px 0px rgba(10, 10, 10, 0.7);
+}
+
+
+.myself {
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.myself img {
+
+
+
+	width: 192px;
+
+	border-radius: 50%;
+	padding: 10px;
+}
+
+
+.description {
+	background-color: #45ADA8;
+	width: 100%;
+
+
+	margin: 0;
+
+
+}
+
+.description-content {
+	padding: 30px;
+	color: white;
+}
+
+.description-content p {
+	margin: 0;
+	font-size: 120%;
+	text-align: center;
+	line-height: 1.6;
+
+}
+
+.description-content strong {
+	color: #34495e;
+}
+
+
+
+.social-media-buttons {
+	margin-top: 20px;
+	box-shadow: 10px 10px 7px 0px rgba(10, 10, 10, 0.7);
+}
+
+.social-media-button {
+	text-align: center;
+	height: 80px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.social-media-button:hover {
+	background-color: #45ADA8;
+	color: white;
 }
 
 a {
-	text-decoration: none;
-	color: white;
-
-}
-
-.wrapper {
-	z-index: 100;
-	width: 100%;
-	margin: auto;
-	background-color: rgba(0, 0, 0, 0.6);
-	margin-top: -20px;
-	padding-top: 20px;
-	height: 100%;
-}
-
-header {
-	text-align: center;
-}
-
-header ul {
-	list-style: none;
-}
-
-header li {
-	display: inline;
-	margin: 20px;
-	font-size: 1.4em;
-	font-family: "Muli";
-	color: white;
-}
-
-.main-info-card {
-	text-align: center;
-	font-family: "Muli";
-	color: white;
-	font-weight: bold;
-}
-
-.main-name {
-	font-family: "Open Sans";
-	margin-top: 100px;
-	font-size: 3em;
-	text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
-}
-
-.main-tag-line {
-	font-family: "Lobster";
-	margin-top: 30px;
-	font-size: 1.7em;
-	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-	letter-spacing: 1.5px;
-}
-
-.main-email {
-	margin-top: 20px;
-	font-size: 1.1em;
-	font-weight: none;
-}
-
-#veil-canvas {
-	z-index: -20;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
-}
-
-.animation-controls {
-	margin-top: 40px;
-	font-family: "Muli";
-	font-weight: bold;
-	color: white;
-	background-color: rgba(255, 255, 255, 0.3);
-	width: 40%;
-	margin-left: 60%;
-	border: 1px solid rgba(255, 255, 255, 0.9);
-	padding: 20px;
-}
-
-.animation-control {
-	margin: 10px;
-}
-
-.animation-control-text {
-	display: block;
-
-}
-
-.animation-control input {
-	width: 80%;
+	color: inherit;
 }

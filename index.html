@@ -2,48 +2,96 @@
 <html>
 <head>
 	<meta charset="utf-8">
+
 	<title> Braulio Valdivielso Martínez </title>
-	<link href='http://fonts.googleapis.com/css?family=Muli|Open Sans|Lobster' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/main.js"></script>
+
+	<link rel="import" href="./bower_components/polymer/polymer.html">
+	<link rel="import" href="./components/colors-background/component.html">
+
+
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-	<canvas id="veil-canvas"></canvas>
-	<section class="wrapper">
-		<!-- <header>
-			<ul>
-				<li> <a href="#"> Home </a> </li>
-				<li> <a href="#"> About </a> </li>
-				<li> <a href="#"> Stuff I do </a> </li> 
-			</ul>
-		</header>-->
+	<colors-background class="fill">
+		<div class="wrapper">
 
-		<div class="main-info-card">
-			<div class="main-name">
-				Braulio Valdivielso Martínez
+			<div class="content" horizontal center-justified layout center >
+
+				<div class="presentation-card">
+
+					<div class="top-part">
+
+						<div class="myself" vertical layout center>
+
+							<img src="./images/myself.jpeg">
+
+							<h2> Braulio Valdivielso Martínez </h2>
+
+						</div>
+
+						<div class="description">
+							
+							<div class="description-content">
+								<p> 
+									Got
+									<strong>international prizes</strong> for my 
+									<strong>web development skills</strong>
+								</p>
+
+								<p> I make <strong>creative</strong> content </p>
+
+								<p> I study <strong>Computer Science</strong> and <strong>Mathematics</strong> </p>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="social-media-buttons" horizontal center-justified layout>
+
+						<div class="social-media-button" flex horizontal layout center-justified center>
+
+							<a href="https://github.com/bvaldivielso">
+								<i class="fa fa-github fa-2x"></i>
+							</a>
+
+						</div>
+						<div class="social-media-button" flex horizontal layout center-justified center>
+
+							<a href="http://twitter.com/bvaldivielso">
+
+								<i class="fa fa-twitter fa-2x"></i>
+
+							</a>
+
+						</div>
+						<div class="social-media-button" flex horizontal layout center-justified center>
+							
+							<a href="mailto:yosoy@braulio.me">
+								<i class="fa fa-envelope fa-2x"></i>
+
+							</a>
+						</div>
+
+
+						<div class="social-media-button" flex horizontal layout center-justified center>
+							
+							<a href="http://blog.braulio.me">
+								<i class="fa fa-rss fa-2x"></i>
+
+							</a>
+						</div>
+					
+					</div>
+
+
+				</div>
+
 			</div>
-			<div class="main-tag-line">
-				(Computer Science | Mathematics | Developer)
-			</div>
-			<div class="main-email">
-				<a href="mailto:yosoy@braulio.me"> yosoy@braulio.me </a>
-			</div>
+
+
 		</div>
-
-		<div class="animation-controls">
-			<div class="animation-control">
-				<span class="animation-control-text"> Probability of activating a square </span>
-				<input type="range" id="probability-activation-range">
-			</div>
-
-			<div class="animation-control">
-				<span class="animation-control-text"> Speed </span>
-				<input type="range" id="speed-range">
-			</div>
-
-		</div>
-
-	</section>
-
+	</colors-background>
 </body>
 </html>
