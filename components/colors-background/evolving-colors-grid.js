@@ -96,7 +96,6 @@ ColourCell.prototype.getNextColor = function(){
 
 	if (this.color_queue.length == 0) {
 
-		console.log(this.current_color);
 
 		var random_color = this.color_palette.chooseRandom();
 		this.color_queue = this.color_queue.concat(this.gradientColorsTo(random_color));

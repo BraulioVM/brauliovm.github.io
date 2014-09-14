@@ -30,7 +30,6 @@
 
 			var cg = new EvolvingColorsGrid(this.getCanvas(), this.palette, 10, 20);  
 
-			console.log(cg);
 
 			var element = this;
 
