@@ -1,0 +1,21 @@
+{
+  "name": "brauliovm.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/BraulioVM/brauliovm.github.io",
+  "authors": [
+    "Braulio Valdivielso Martínez <brlvldvlsmrtnz@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "~2.2.3"
+  }
+}

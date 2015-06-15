@@ -1,0 +1,24 @@
+# 3-state busy beaver machine
+# http://en.wikipedia.org/wiki/Busy_Beaver
+Q0 0 => Q1 1 RIGHT
+Q0 1 => HALT 1 RIGHT # ends the program
+
+Q1 0 => Q2 0 RIGHT
+Q1 1 => Q1 1 RIGHT
+
+Q2 0 => Q2 1 LEFT
+Q2 1 => Q0 1 LEFT
+--
+# 4-state busy beaver machine
+# http://en.wikipedia.org/wiki/Busy_Beaver
+Q0 0 => Q1 1 RIGHT
+Q0 1 => Q1 1 LEFT
+
+Q1 0 => Q0 1 LEFT
+Q1 1 => Q2 0 LEFT
+
+Q2 0 => HALT 1 RIGHT
+Q2 1 => Q3 1 LEFT
+
+Q3 0 =>	Q3 1 RIGHT
+Q3 1 => Q0 0 RIGHT 

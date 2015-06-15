@@ -1,0 +1,69 @@
+$visibleTapeLength: 603px;
+$tapeCellsToShow: 9;
+
+$cellLength: ($visibleTapeLength)/$tapeCellsToShow;
+$cellHeight: 60px;
+
+$cellMarkWidth: 1px;
+$dataHolderPadding: 20px;
+
+.turing-tape {
+	position: relative;
+	width: $visibleTapeLength;
+	overflow: hidden;
+}
+
+.cell {
+	display: inline-block;
+	text-align: center;
+	height: $cellHeight;
+	vertical-align: bottom;
+	font-family: "Roboto";
+	background-color: #ecf0f1;
+}
+
+.data-holder {
+	margin: 0px;
+	height: $cellHeight - 2*$dataHolderPadding;
+	padding-top: $dataHolderPadding;
+	padding-bottom: $dataHolderPadding;
+}
+
+.visibleCell {
+	margin-left: 0px;
+	width: $cellLength;
+	transition: width 0.8s linear;
+}
+
+.invisibleCell {
+	width: 0px;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	overflow: hidden;
+	opacity: 0;
+	transition: width 0.8s linear, opacity 0.8s step-end;
+
+}
+
+.currentCellMark {
+	position: absolute;
+	border: $cellMarkWidth solid #F00;
+	top: 0px;
+	left: $cellLength * floor($tapeCellsToShow/2);
+	width: $cellLength - 2*$cellMarkWidth;
+	height: $cellHeight - 2*$cellMarkWidth;
+	z-index: 3000;
+}
+
+.on {
+	color: #3498db;
+}
+
+.off {
+	color: black;
+}
+
+.activeCell {
+	background-color: red;
+}

@@ -2,96 +2,35 @@
 <html>
 <head>
 	<meta charset="utf-8">
-
-	<title> Braulio Valdivielso Martínez </title>
-	<link rel="stylesheet" href="./css/style.css">
-
-	<link rel="import" href="./bower_components/polymer/polymer.html">
-	<link rel="import" href="./components/colors-background/component.html">
-
-
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<title> Braulio Valdivielso </title>
+	<link rel="stylesheet" href="/build/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto|PT+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<colors-background class="fill">
-		<div class="wrapper">
-
-			<div class="content" horizontal center-justified layout center >
-
-				<div class="presentation-card">
-
-					<div class="top-part">
-
-						<div class="myself" vertical layout center>
-
-							<img src="./images/myself.jpeg">
-
-							<h2> Braulio Valdivielso Martínez </h2>
-
-						</div>
-
-						<div class="description">
-							
-							<div class="description-content">
-								<p> 
-									Got
-									<strong>international prizes</strong> for my 
-									<strong>web development skills</strong>
-								</p>
-
-								<p> I make <strong>creative</strong> content </p>
-
-								<p> I study <strong>Computer Science</strong> and <strong>Mathematics</strong> </p>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="social-media-buttons" horizontal center-justified layout>
-
-						<div class="social-media-button" flex horizontal layout center-justified center>
-
-							<a href="https://github.com/bvaldivielso">
-								<i class="fa fa-github fa-2x"></i>
-							</a>
-
-						</div>
-						<div class="social-media-button" flex horizontal layout center-justified center>
-
-							<a href="http://twitter.com/bvaldivielso">
-
-								<i class="fa fa-twitter fa-2x"></i>
-
-							</a>
-
-						</div>
-						<div class="social-media-button" flex horizontal layout center-justified center>
-							
-							<a href="mailto:yosoy@braulio.me">
-								<i class="fa fa-envelope fa-2x"></i>
-
-							</a>
-						</div>
-
-
-						<div class="social-media-button" flex horizontal layout center-justified center>
-							
-							<a href="http://blog.braulio.me">
-								<i class="fa fa-rss fa-2x"></i>
-
-							</a>
-						</div>
-					
-					</div>
-
-
+	<main>
+		<div class="transparent-wrapper">
+			<div class="jumbo">
+				<div class="name-and-tagline">
+					<h1> Braulio Valdivielso </h1>
 				</div>
-
+				<div class="bio">
+					<span> 
+						I make <strong>software</strong>. I study <strong>CompSci</strong> and <strong>Mathematics</strong>.
+					</span>
+				</div>
+				<div id="turing-machine">	
+					<!-- React component inside -->
+				</div>
+				
 			</div>
-
-
 		</div>
-	</colors-background>
+	</main>
+
+
+
+
+	<script src="/bower_components/fetch/fetch.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/build/app.js"></script>
 </body>
 </html>
