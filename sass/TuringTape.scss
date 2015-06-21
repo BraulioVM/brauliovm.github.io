@@ -3,7 +3,7 @@ $visibleTapeLength: 100%;
 $tapeCellsToShow: 7;
 
 
-$cellLength: ($visibleTapeLength - 25)/$tapeCellsToShow;
+$cellLength: $visibleTapeLength/$tapeCellsToShow;
 $cellHeight: 60px;
 
 $cellMarkWidth: 1px;
@@ -11,7 +11,7 @@ $dataHolderPadding: 20px;
 
 .turing-tape {
 	position: relative;
-	overflow: hidden;
+	width: 100%;
 }
 
 .cell {
@@ -52,7 +52,7 @@ $dataHolderPadding: 20px;
 	border: $cellMarkWidth solid #F00;
 	top: 0px;
 	left: $cellLength * floor($tapeCellsToShow/2);
-	width: -webkit-calc($cellLength - 2*$cellMarkWidth);
+	width: $cellLength;
 	height: $cellHeight - 2*$cellMarkWidth;
 	z-index: 3000;
 }

@@ -1,7 +1,7 @@
 import React from 'react/addons.js';
 import { range, numberInInterval } from '../util.js';
 
-const DATA_TO_DISPLAY = 10;
+const DATA_TO_DISPLAY = 7;
 
 let TuringTape = React.createClass({
 	render(){
@@ -9,7 +9,7 @@ let TuringTape = React.createClass({
 		let data = this.props.data;	
 		let headPosition = this.props.headPosition;
 
-		let cellIntervalToShow = [headPosition - DATA_TO_DISPLAY/2 + 1, headPosition + DATA_TO_DISPLAY/2 - 1];
+		let cellIntervalToShow = [headPosition - DATA_TO_DISPLAY/2, headPosition + DATA_TO_DISPLAY/2];
 		let indexes = Object.keys(data).map(Number).sort((a, b) => a - b);
 
 

@@ -1,3 +1,15 @@
 .turing-machine {
 	display: inline-block;
+
+	@media screen and (min-width: 560px) {
+    	width: 40%;
+	}
+
+	@media screen and (max-width: 560px) {
+		width: 100%;
+		padding: 0px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 }
