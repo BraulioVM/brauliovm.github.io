@@ -3,6 +3,7 @@
 	padding: 10px;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
+	min-height: 50px;
 
 	.programName {
 		font-family: "Roboto";
@@ -12,21 +13,19 @@
 	a {
 		color: inherit;
 		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.left {
 		width: 10%;
 		float: left;
 		display: inline-block;
-		line-height: 50px;
 	}
 
 	.right {
 		width: 10%;
 		float: right;
-		display: inline-block;
-		line-height: 50px;
-		
+		display: inline-block;	
 	}
 
 	.center {
