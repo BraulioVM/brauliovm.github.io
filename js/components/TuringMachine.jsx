@@ -11,7 +11,12 @@ const UPDATE_HEAD_POSITION_DATA_TIME = 800;
 
 let TuringMachine = React.createClass({
 	getInitialState(){
-		return { data: [], headPosition: 0, currentProgramIndex: -1 };
+		return { 
+			data: [], 
+			headPosition: 0, 
+			currentProgramIndex: -1,
+			dataSetInterval: -1 
+		};
 	},
 	componentDidMount(){
 		this.getPrograms().then(() => {
@@ -24,9 +29,11 @@ let TuringMachine = React.createClass({
 
 		this.setState({ headPosition: machine.headPosition });
 
-		setTimeout(() => {
+		let dataSetInterval = setTimeout(() => {
 			this.setState({ data: machine.surroundingData(20) });
 		}, UPDATE_HEAD_POSITION_DATA_TIME);
+
+		this.setState({ dataSetInterval });
 	},
 
 	getPrograms(){
@@ -41,6 +48,7 @@ let TuringMachine = React.createClass({
 	},
 
 	loadPreviousProgram() {
+
 		let currentIndex = this.state.currentProgramIndex;
 		let previousProgramIndex = currentIndex == 0? this.state.programs.length - 1 : currentIndex - 1;
 		this.loadProgram(previousProgramIndex);
@@ -48,15 +56,19 @@ let TuringMachine = React.createClass({
 
 	loadProgram(programNumber){	
 		
-		this.cleanPreviousMachineListeners();
+		this.freePreviousMachine();
+		
 		this.setState({ currentProgramIndex: programNumber });
+		this.setBlankTape();
 		
 		let program = this.state.programs[programNumber];
 		let machine = parse(program.code);
-		this.setState({ machine, headPosition: 0, data: machine.surroundingData(20) });
+		this.setState({ machine, headPosition: 0, data: machine.surroundingData(20) }, function(){
+			this.setMachineListeners();
+			machine.run(COMPUTATION_STEP_TIME);	
+		});
 
-		this.setMachineListeners();
-		machine.run(COMPUTATION_STEP_TIME);
+		
 	},
 
 	setMachineListeners() {
@@ -68,8 +80,19 @@ let TuringMachine = React.createClass({
 		});
 	},
 
-	cleanPreviousMachineListeners(){
+	setBlankTape() {
+		let machine = this.state.machine;
+
+		if (machine){
+			this.setState({ data: machine.surroundingData(20) });
+		}
+	},
+
+	freePreviousMachine(){
+		clearInterval(this.state.dataSetInterval);
 		if (this.state.machine){
+			
+			this.state.machine.stop();
 			this.state.machine.removeAllListeners("step");
 			this.state.machine.removeAllListeners("halt");
 		}
@@ -83,7 +106,7 @@ let TuringMachine = React.createClass({
 				<Tape data={this.state.data} headPosition={this.state.headPosition} />
 				<ProgramChooser 
 					onRightClick={this.loadNextProgram} 
-					onLeftClick={this.props.loadPreviousProgram}
+					onLeftClick={this.loadPreviousProgram}
 					programs={this.state.programs} 
 					currentProgramIndex={this.state.currentProgramIndex}
 				/>

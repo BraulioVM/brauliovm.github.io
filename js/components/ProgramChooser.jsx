@@ -11,11 +11,17 @@ let ProgramChooser = React.createClass({
 
 			return (
 				<div className="programChooser">
-					<a className="leftArrow" onClick={this.props.onLeftClick}>{' <- '}</a>
-					<span className="programName"> 
-						<a href={program.link}>{program.name} </a>
-					</span>
-					<a className="rightArrow" onClick={this.props.onRightClick}>{ ' -> ' }</a>
+					<div className="left">
+						<a className="leftArrow" onClick={this.props.onLeftClick}>{' <- '}</a>
+					</div>
+					<div className="center">
+						<span className="programName"> 
+							<a href={program.link}>{program.name} </a>
+						</span>
+					</div>
+					<div className="right">
+						<a className="rightArrow" onClick={this.props.onRightClick}>{ ' -> ' }</a>
+					</div>
 				</div>
 			);
 		} else {

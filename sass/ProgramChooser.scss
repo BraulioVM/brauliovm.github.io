@@ -14,14 +14,24 @@
 		text-decoration: none;
 	}
 
-	.leftArrow {
+	.left {
 		width: 10%;
 		float: left;
+		display: inline-block;
+		line-height: 50px;
 	}
 
-	.rightArrow {
-		width: 10%; 
+	.right {
+		width: 10%;
 		float: right;
+		display: inline-block;
+		line-height: 50px;
+		
+	}
+
+	.center {
+		width: 60%;
+		display: inline-block;
 	}
 
 }
