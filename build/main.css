@@ -62,7 +62,7 @@
 }
 @media screen and (min-width: 560px) {
   .turing-machine {
-    width: 40%;
+    width: 70%;
   }
 }
 @media screen and (max-width: 560px) {
@@ -79,6 +79,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   min-height: 50px;
+  text-align: center;
 }
 .programChooser .programName {
   font-family: "Roboto";
@@ -135,31 +136,61 @@ main .transparent-wrapper {
   min-height: 100%;
 }
 main .jumbo {
-  text-align: center;
   padding-top: 120px;
   height: 460px;
 }
-main .jumbo .name-and-tagline {
+main .jumbo .left-block .left-block-content .name-and-tagline {
   font-family: "Roboto";
 }
-main .jumbo .name-and-tagline h1 {
+main .jumbo .left-block .left-block-content .name-and-tagline h1 {
   font-size: 400%;
   color: white;
   margin: 0px;
 }
-main .jumbo #turing-machine {
+main .jumbo .left-block .left-block-content #turing-machine {
   margin-top: 40px;
 }
-main .jumbo .bio {
-  width: 60%;
-  margin: auto;
-}
-main .jumbo .bio span {
+main .jumbo .left-block .left-block-content .bio span {
   font-size: 180%;
   color: white;
   font-family: "PT Sans";
   line-height: 1.6;
 }
-main .jumbo .bio span strong {
+main .jumbo .left-block .left-block-content .bio span strong {
   color: #3498db;
+}
+main .jumbo .right-block {
+  vertical-align: middle;
+  display: inline-block;
+}
+@media screen and (max-width: 560px) {
+  main .jumbo .left-block {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  main .jumbo .right-block {
+    vertical-align: middle;
+    display: inline-block;
+    width: 39%;
+  }
+}
+@media screen and (min-width: 560px) {
+  main .jumbo .left-block {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  main .jumbo .left-block .left-block-content {
+    padding-left: 50px;
+  }
+  main .jumbo .left-block .left-block-content .bio {
+    width: 80%;
+  }
+  main .jumbo .right-block {
+    vertical-align: middle;
+    display: inline-block;
+    width: 39%;
+  }
 }

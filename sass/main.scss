@@ -6,6 +6,8 @@
 $font: "Roboto";
 $bio_font: "PT Sans";
 
+
+
 html {
 	height: 100%;
 	min-height: 100%;
@@ -39,37 +41,10 @@ main {
 	}
 
 	.jumbo {
-		text-align: center;
 		padding-top: 120px;
 		height: 460px;
-		.name-and-tagline {
-			font-family: $font;
 
-			h1 {
-				font-size: 400%;
-				color: white;
-				margin: 0px;
-			}
-		}
-
-		#turing-machine {
-			margin-top: 40px;
-		}
-
-		.bio {
-			width: 60%;
-			margin: auto;
-			span {
-				font-size: 180%;
-				color: white;
-				font-family: $bio_font;
-				line-height: 1.6;
-
-				strong {
-					color: #3498db;	
-				}
-			}
-		}
+		@import 'blocks/blocks.scss';
 
 	}
 

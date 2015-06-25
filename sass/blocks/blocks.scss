@@ -1,0 +1,42 @@
+$left_block_width: 60%;
+
+
+.left-block {
+	.left-block-content {
+	
+		.name-and-tagline {
+			font-family: $font;
+
+			h1 {
+				font-size: 400%;
+				color: white;
+				margin: 0px;
+			}
+		}
+
+		#turing-machine {
+			margin-top: 40px;
+		}
+
+		.bio {
+			span {
+				font-size: 180%;
+				color: white;
+				font-family: $bio_font;
+				line-height: 1.6;
+
+				strong {
+					color: #3498db;	
+				}
+			}
+		}	
+	}
+}
+
+.right-block {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+@import "small.scss";
+@import "big.scss";

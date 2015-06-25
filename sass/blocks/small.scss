@@ -1,0 +1,14 @@
+@media screen and (max-width: 560px) {
+	.left-block {
+		text-align: center;
+		width: 100%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.right-block {
+		vertical-align: middle;
+		display: inline-block;
+		width: 100% - $left_block_width - 1%;
+	}    
+}

@@ -1,0 +1,23 @@
+@media screen and (min-width: 560px) {
+	.left-block {
+		width: $left_block_width;
+		display: inline-block;
+		.left-block-content {
+			padding-left: 50px;
+
+			.bio {
+				width: 80%;
+			}
+		}
+
+
+		
+		vertical-align: middle;
+	}
+
+	.right-block {
+		vertical-align: middle;
+		display: inline-block;
+		width: 100% - $left_block_width - 1%;
+	}    
+}
